@@ -1,9 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom'
-import * as userService from '../../utilities/users-service' 
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../utilities/AuthContext'
 
 export default function NavBar() {
-    const navigate = useNavigate()
     const {user, logoutUser} = useAuth()
 
     return (
