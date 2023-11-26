@@ -1,12 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
 import * as userService from '../../utilities/users-service' 
+import { useAuth } from '../../utilities/AuthContext'
 
 export default function NavBar() {
     const navigate = useNavigate()
+    const {user} = useAuth()
 
-    function handleLogOut() {
-        navigate('/auth')
-        // setUser(null)
+    const logoutClick = () => {
+        navigate('/Auth')
     }
 
     return (
@@ -26,8 +27,14 @@ export default function NavBar() {
                 color: 'white'
             }}
         >
-            <Link to="/" style={{color:'white'}}>Home</Link> 
-            <Link to="/auth" style={{color:'white'}}>Log Out</Link>
+            {user ? (
+                <>
+                    <Link to="/" style={{color:'white'}}>Home</Link> 
+                    <button onClick={logoutClick} className="btn">Logout</button>
+                </>
+            ) : (
+                <Link to={'/auth'}>Auth</Link>
+            )}
         </nav>
     )
 }
