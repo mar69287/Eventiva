@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
-// import { account } from '../appwriteConfig'
+import { account } from '../appwriteConfig'
 // import * as userService from './users'
 
 const AuthContext = createContext()
@@ -17,12 +17,13 @@ export const AuthProvider = ({children}) => {
         setLoading(true)
 
         try {
-            // const user = await userService.login(userInfo)
-            // let response = await account.createEmailSession(
-            //     userInfo.email,
-            //     userInfo.password
-            // )
-            setUser(user)
+            let response = await account.createEmailSession(
+                userInfo.email,
+                userInfo.password
+            )
+            let accountDetails = await account.get()
+            setUser(accountDetails)
+            setLoading(false)
         } catch (error) {
             console.error('Error during login:', error);
         }

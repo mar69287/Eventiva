@@ -1,12 +1,11 @@
 import { Client, Account } from 'appwrite';
-import dotenv from 'dotenv';
 const client = new Client();
 
-dotenv.config();
-
 client
-    .setEndpoint(process.env.APPWRITE_ENDPOINT)
-    .setProject(process.env.APPWRITE_PROJECT_ID);
+    .setEndpoint(process.env.REACT_APP_APPWRITE_ENDPOINT)
+    .setProject(process.env.REACT_APP_APPWRITE_PROJECT_ID);
+    // .setEndpoint(`https://cloud.appwrite.io/v1`)
+    // .setProject(`65559e0a3a0f1ad26e92`);
 
 export const account = new Account(client)
 
