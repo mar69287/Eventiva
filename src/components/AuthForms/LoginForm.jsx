@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import * as usersService from '../../utilities/users-service';
 import { useAuth } from '../../utilities/AuthContext'
 
 export default function LoginForm({ setUser }) {
@@ -18,12 +17,6 @@ export default function LoginForm({ setUser }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     loginUser(credentials)
-    // try {
-    //   const user = await usersService.login(credentials);
-    //   setUser(user);
-    // } catch {
-    //   setError('Log In Failed - Try Again');
-    // }
   }
 
   return (
