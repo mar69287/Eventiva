@@ -24,6 +24,7 @@ export const AuthProvider = ({children}) => {
                 userInfo.password
             )
             let accountDetails = await account.get()
+            console.log(accountDetails)
             setUser(accountDetails)
             setLoading(false)
         } catch (error) {
