@@ -10,7 +10,7 @@ export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(false)
 
     useEffect(() => {
-        setLoading(false)
+        checkUserStatus()
      }, [])
 
     const loginUser = async (userInfo) => {
@@ -29,15 +29,24 @@ export const AuthProvider = ({children}) => {
         }
     }
 
-    const logoutUser = () => {
-
-    }
+    const logoutUser = async () => {
+        await account.deleteSession('current');
+        setUser(null)
+     }
 
     const registerUser = (userInfo) => {
 
     }
 
-    const checkUserStatus = () => {}
+    const checkUserStatus = async () => {
+        try{
+            let accountDetails = await account.get();
+            setUser(accountDetails)
+        }catch(error){
+            console.error('Error during check user status:', error);
+        }
+        setLoading(false)
+    }
 
     const contextData = {
         user,

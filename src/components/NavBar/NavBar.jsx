@@ -4,11 +4,7 @@ import { useAuth } from '../../utilities/AuthContext'
 
 export default function NavBar() {
     const navigate = useNavigate()
-    const {user} = useAuth()
-
-    const logoutClick = () => {
-        navigate('/Auth')
-    }
+    const {user, logoutUser} = useAuth()
 
     return (
         <nav
@@ -30,7 +26,7 @@ export default function NavBar() {
             {user ? (
                 <>
                     <Link to="/" style={{color:'white'}}>Home</Link> 
-                    <button onClick={logoutClick} className="btn">Logout</button>
+                    <button onClick={logoutUser} className="btn">Logout</button>
                 </>
             ) : (
                 <Link to={'/auth'}>Auth</Link>
