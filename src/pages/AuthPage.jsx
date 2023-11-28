@@ -10,7 +10,7 @@ export default function AuthPage() {
 
     useEffect(() => {
         if (user) {
-            navigate('/')
+            navigate('/dashboard')
         }
     })
 
