@@ -23,11 +23,14 @@ export default function NavBar() {
         >
             {user ? (
                 <>
-                    <Link to="/" style={{color:'white'}}>Home</Link> 
+                    <Link to="/dashboard" style={{color:'white'}}>Dashboard</Link> 
                     <button onClick={logoutUser} className="btn">Logout</button>
                 </>
             ) : (
-                <Link to={'/auth'}>Auth</Link>
+                <>
+                    <Link to={'/auth'}>Auth</Link>
+                    <Link to={'/'}>Home</Link>
+                </>
             )}
         </nav>
     )

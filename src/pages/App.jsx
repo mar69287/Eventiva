@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar/NavBar'
 import Home from './Home';
 import PrivateRoutes from '../utilities/PrivateRoutes';
 import { AuthProvider } from '../utilities/AuthContext';
+import Dashboard from './Dashboard';
 
 export default function App() {
 
@@ -12,8 +13,9 @@ export default function App() {
             <NavBar/>  
             <Routes>
               <Route element={<PrivateRoutes />}>
-                <Route path="/" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
               </Route>
+              <Route path='/' element={<Home />} />
               <Route path="/auth" element={<AuthPage />} />
             </Routes>
           </AuthProvider>
