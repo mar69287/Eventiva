@@ -10,7 +10,7 @@ export default function App() {
 
   return (
           <AuthProvider>
-            <NavBar/>  
+            {/* <NavBar/>   */}
             <Routes>
               <Route element={<PrivateRoutes />}>
                 <Route path="/dashboard" element={<Dashboard />} />

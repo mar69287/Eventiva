@@ -24,8 +24,8 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  padding: 2vmin;
+  background-color: #fff;
+  /* padding: 2vmin; */
   height: 100vh;
 }
 
@@ -36,7 +36,7 @@ code {
 
 #root {
   height: 100%;
-  padding-top: 70px;
+  /* padding-top: 70px; */
 }
 
 .align-ctr {

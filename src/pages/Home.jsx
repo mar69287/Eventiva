@@ -12,7 +12,7 @@ const Home = () => {
       }
   })
   return (
-    <div>
+    <div className="bg-[#f2decb] flex flex-col p-5 justify-center items-center">
       <h1>Home Page</h1>
     </div>
   )
