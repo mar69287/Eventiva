@@ -20,7 +20,7 @@ const HeroContainer = () => {
                     <text className='text-center text-tsecondary'>Use Demo</text>
                     <text className='text-center text-tsecondary'>Email: user@user.com - Password: user1234</text>
                 </div>
-                <button className='w-full mt-3 rounded-full border-2 border-primary p-2 text-tprimary font-bold' onClick={() => setShowLogin(!showLogin)}>New to Eventiva? Join now</button>
+                <button className='w-full mt-3 rounded-full border-2 border-primary p-2 text-tprimary font-bold' onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'New to Eventiva? Join now' : 'Already Registered? Login'}</button>
             </div>
         </div>
         <div className='h-max bg-primary flex-1 '>

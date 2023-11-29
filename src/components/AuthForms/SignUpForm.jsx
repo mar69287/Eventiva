@@ -35,35 +35,19 @@ const Signup = () => {
   };
   return (
     <div>
-      {/* <h2>Signup</h2> */}
-      <form className='form-container' onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Confirm Password:
+      <form className='form-container' autoComplete='off' onSubmit={handleSubmit}>
+          <input className='placeholder:text-[#737C63] transition-all duration-400 hover:border-tertiary text-[#737C63] focus-none outline-none appearance-none bg-transparent border-b-2 p-2 focus-none border-b-primary w-full text-tsecondary' placeholder='Your Name' type="text" name="name" value={formData.name} onChange={handleChange} />
+          <input className='placeholder:text-[#737C63] transition-all duration-400 hover:border-tertiary text-[#737C63] focus-none outline-none appearance-none bg-transparent border-b-2 p-2 focus-none border-b-primary w-full text-tsecondary' placeholder='Your Email' type="email" name="email" value={formData.email} onChange={handleChange} />
+          <input className='placeholder:text-[#737C63] transition-all duration-400 hover:border-tertiary text-[#737C63] focus-none outline-none appearance-none bg-transparent border-b-2 p-2 focus-none border-b-primary w-full text-tsecondary' placeholder='Password' type="password" name="password" value={formData.password} onChange={handleChange} />
           <input
+          className='placeholder:text-[#737C63] transition-all duration-400 hover:border-tertiary text-[#737C63] focus-none outline-none appearance-none bg-transparent border-b-2 p-2 focus-none border-b-primary w-full text-tsecondary' placeholder='Confirm Password'
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
           />
-        </label>
-        <br />
         {error && <p>{error}</p>}
-        <button type="submit">Signup</button>
+        <button className='w-full mt-5 mb-6 rounded-full bg-[#F79257] p-2 text-[#FFF] font-bold' type="submit">Signup</button>
       </form>
     </div>
   )
