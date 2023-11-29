@@ -16,10 +16,12 @@ const HeroContainer = () => {
                     <text>or</text>
                     <div className='border-b-2 border-b-tertiary flex-1'></div>
                 </div>
-                <div className='flex flex-col gap-0 mt-4'>
-                    <text className='text-center text-tsecondary'>Use Demo</text>
-                    <text className='text-center text-tsecondary'>Email: user@user.com - Password: user1234</text>
-                </div>
+                {showLogin && (
+                    <div className='flex flex-col gap-0 mt-4'>
+                        <text className='text-center text-tsecondary'>Use Demo</text>
+                        <text className='text-center text-tsecondary'>Email: user@user.com - Password: user1234</text>
+                    </div>
+                )}
                 <button className='w-full mt-3 rounded-full border-2 border-primary p-2 text-tprimary font-bold' onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'New to Eventiva? Join now' : 'Already Registered? Login'}</button>
             </div>
         </div>

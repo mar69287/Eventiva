@@ -47,7 +47,7 @@ const Signup = () => {
             onChange={handleChange}
           />
         {error && <p>{error}</p>}
-        <button className='w-full mt-5 mb-6 rounded-full bg-[#F79257] p-2 text-[#FFF] font-bold' type="submit">Signup</button>
+        <button className='w-full mt-5 mb-6 rounded-full bg-[#F79257] p-2 text-[#FFF] font-bold' type="submit">Sign up</button>
       </form>
     </div>
   )
