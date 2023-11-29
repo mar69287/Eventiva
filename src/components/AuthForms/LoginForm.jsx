@@ -20,17 +20,15 @@ export default function LoginForm() {
   }
 
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+    <>
+      <div className="form-container ">
+        <form className='form w-full' autoComplete="off" onSubmit={handleSubmit}>
+          <input className='placeholder:text-[#737C63] transition-all duration-400 hover:border-tertiary text-[#737C63] focus-none outline-none appearance-none bg-transparent border-b-2 p-2 focus-none border-b-primary w-full text-tsecondary' type="text" name="email" placeholder='Your Email' value={credentials.email} onChange={handleChange} required />
+          <input className='placeholder:text-[#737C63] transition-all duration-400 hover:border-tertiary focus-none outline-none appearance-none bg-transparent border-b-2 p-2 focus-none border-b-primary w-full text-tsecondary' type="password" name="password" placeholder='Your Password' value={credentials.password} onChange={handleChange} required />
+          <button className='w-full mt-5 rounded-full bg-[#F79257] p-2 text-[#FFF] font-bold' type="submit">Sign in</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </>
   );
 }
