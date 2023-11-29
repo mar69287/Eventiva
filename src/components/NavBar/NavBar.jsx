@@ -1,26 +1,15 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../utilities/AuthContext'
+import './Navbar.css'
 
 export default function NavBar() {
     const {user, logoutUser} = useAuth()
 
     return (
         <nav
-            style={{
-                backgroundColor: '#333',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                zIndex: 3,
-                height:'70px',
-                padding: '0 15px',
-                display: "flex",
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                color: 'white'
-            }}
+            className='bg-white px-10 fixed w-full top-0 z-3 left-0 h-[70px] flex justify-between items-center shadow-[0_0_5px_0_rgba(0,0,0,0.3)]'
         >
+
             {user ? (
                 <>
                     <Link to="/dashboard" style={{color:'white'}}>Dashboard</Link> 
@@ -28,8 +17,11 @@ export default function NavBar() {
                 </>
             ) : (
                 <>
-                    <Link to={'/auth'}>Auth</Link>
-                    <Link to={'/'}>Home</Link>
+                    <Link to={'/'} className='logo'>EVENTIVA</Link>
+                    <div className="justify-center items-center space-x-5">
+                        <Link to={'/login'}>Log in</Link>
+                        <Link to={'/signup'}>Sign up</Link>
+                    </div>
                 </>
             )}
         </nav>

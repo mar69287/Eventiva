@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Astro';
+    src: url('../../assets/Astro.ttf') ;
+}
+
+.logo {
+    font-family: 'Astro'; 
+    font-size: 25px;
+    margin: 0;
+    margin-top: 10px;
+}
