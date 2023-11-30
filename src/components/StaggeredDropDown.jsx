@@ -46,7 +46,7 @@ return (
     <motion.li
         variants={itemVariants}
         onClick={handleClick}
-        className="flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded-md hover:bg-indigo-100 text-slate-700 hover:text-indigo-500 transition-colors cursor-pointer"
+        className="flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded-md hover:bg-quaternary text-tsecondary hover:text-[#FFF] transition-colors cursor-pointer"
     >
     <motion.span className="text-lg" variants={actionIconVariants}>
         <Icon />
