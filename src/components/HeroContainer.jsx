@@ -14,13 +14,13 @@ const HeroContainer = () => {
                 {showLogin ? <LoginForm /> : <SignupForm />}
                 <div className='flex flex-row items-center gap-4'>
                     <div className='border-b-2 border-b-tertiary flex-1'></div>
-                    <text>or</text>
+                    <p>or</p>
                     <div className='border-b-2 border-b-tertiary flex-1'></div>
                 </div>
                 {showLogin && (
                     <div className='flex flex-col gap-0 mt-4'>
-                        <text className='text-center text-tsecondary'>Use Demo</text>
-                        <text className='text-center text-tsecondary'>Email: user@user.com - Password: user1234</text>
+                        <p className='text-center text-tsecondary'>Use Demo</p>
+                        <p className='text-center text-tsecondary'>Email: user@user.com - Password: user1234</p>
                     </div>
                 )}
                 <button className='w-full mt-3 rounded-full border-2 border-primary p-2 text-tprimary font-bold' onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'New to Eventiva? Join now' : 'Already Registered? Login'}</button>
