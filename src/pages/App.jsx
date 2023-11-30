@@ -1,6 +1,4 @@
 import { Routes, Route } from 'react-router-dom'
-import AuthPage from './AuthPage';
-import NavBar from '../components/NavBar/NavBar'
 import Home from './Home';
 import PrivateRoutes from '../utilities/PrivateRoutes';
 import { AuthProvider } from '../utilities/AuthContext';
