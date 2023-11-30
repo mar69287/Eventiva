@@ -6,7 +6,7 @@ import heroImg from '../assets/layered-hero.png'
 const HeroContainer = () => {
     const [showLogin, setShowLogin] = useState(true)
   return (
-    <section className='max-w-6xl max-[860px]:flex-col w-full flex flex-row items-center justify-center'>
+    <section className='max-w-6xl p-5 max-[860px]:flex-col w-full flex flex-row items-center justify-center'>
         <div className='flex-1 flex flex-col justify-start items-center max-[860px]:w-full'>
             <h1 className='text-tsecondary text-4xl max-sm:text-3xl mb-5'>Welcome to</h1>
             <h1 className='text-tprimary text-6xl logo max-sm:text-3xl max-md:text-4xl'>EVENTIVA</h1>
