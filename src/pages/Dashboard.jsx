@@ -29,14 +29,13 @@ const Dashboard = () => {
         </div>
         
       </div>
-      <div className='w-full max-w-3xl relative flex flex-col justify-center items-center'>
+      <div className='w-full max-w-3xl relative flex flex-col justify-center items-center px-2'>
         <div className="flex justify-between items-center w-full pt-10">
           <h1 className='text-2xl font-semibold'>My {upcoming ? 'upcoming' : 'past'} events</h1>
-          <div className='shadow-[0_0_5px_0_rgba(0,0,0,0.3)] rounded-full text-xl p-2'><BsPlusLg /></div>
+          <div className='shadow-[0_0_5px_0_rgba(0,0,0,0.3)] rounded-full text-xl p-2' onClick={() => setIsOpen(true)}><BsPlusLg /></div>
         </div>
-        <img src={travel} className='h-80 my-10' alt='people traveling'/>
-        <h1 className='text-xl font-semibold  mb-6'>It is scientifically proven that the company of good friends reduces stress in life.</h1>
-        {/* <Link className='bg-tprimary rounded-md px-5 py-2 text-[#FFF] font-semibold mb-4'>So... lets plan your first outing!</Link> */}
+        <img src={travel} className='h-52 sm:h-72 my-10' alt='people traveling'/>
+        <h1 className='text-md sm:text-lg font-semibold text-center mb-6'>It is scientifically proven that the company of good friends reduces stress in life.</h1>
         <button
           onClick={() => setIsOpen(true)}
           className="bg-gradient-to-r from-primary to-quaternary  text-white mb-4 font-semibold px-4 py-2 rounded hover:opacity-90 transition-opacity"
