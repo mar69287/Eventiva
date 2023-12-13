@@ -18,18 +18,19 @@ const CreateEventModal = ({ isOpen, setIsOpen }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsOpen(false)}
-          className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
+          className="bg-slate-900/20 backdrop-blur p-2 sm:p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
         >
           <motion.div
             initial={{ scale: 0, rotate: "12.5deg" }}
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-primary to-quaternary text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+            className="bg-gradient-to-br from-primary to-quaternary text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative "
           >
-            <FaPlane className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-20 -left-14" />
+            <FaPlane className="text-white/10 rotate-12 text-[150px] sm:text-[250px] absolute z-0 -top-0 -left-0" />
             <div className="relative z-10">
-              <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-primary grid place-items-center mx-auto">
+              <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-primary grid place-items-center mx-auto overflow-hidden">
+              {/* <div className="bg-white w-12 h-12 mb-2 rounded-full text-2xl text-primary grid place-items-center mx-auto overflow-hidden"> */}
                 <FaPlaneDeparture />
               </div>
               {step === 1 && (
@@ -37,6 +38,9 @@ const CreateEventModal = ({ isOpen, setIsOpen }) => {
               )}
               {step === 2 && (
                 <StepTwo activity={activity} eventTitle={eventTitle} setEventTitle={setEventTitle} step={step} setIsOpen={setIsOpen} setStep={setStep} />
+              )}
+              {step === 3 && (
+                <StepThree activity={activity} eventTitle={eventTitle} setEventTitle={setEventTitle} step={step} setIsOpen={setIsOpen} setStep={setStep} />
               )}
               
             </div>
@@ -50,7 +54,7 @@ const CreateEventModal = ({ isOpen, setIsOpen }) => {
 const StepOne = ({ trip, setTrip, activity, setActivity, step, setStep, setIsOpen }) => {
     return (
         <>
-            <h3 className="text-3xl font-bold text-center mb-2">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-2">
                 Let's set up your event!
             </h3>
             <p className="text-center mb-6">
@@ -131,7 +135,7 @@ const StepTwo = ({ setStep, step, setIsOpen }) => {
                 <h3 className="text-xl font-bold text-left mb-2">
                 Date
                 </h3>
-                <div className="flex flex-row justify-between items-center mb-4 bg-white p-2 w-1/2 cursor-pointer rounded-md" onClick={handleInputClick} >
+                <div className="flex flex-row justify-between items-center mb-4 bg-white p-2 sm:w-1/2 cursor-pointer rounded-md" onClick={handleInputClick} >
                     <input
                         type="text"
                         defaultValue={selected}
@@ -175,12 +179,16 @@ const StepTwo = ({ setStep, step, setIsOpen }) => {
       </>
     );
 };
+
 const StepThree = ({ activity, eventTitle, setEventTitle }) => {
   
     return (
       <>
+        <h3 className="text-3xl font-bold text-center mb-2">
+            Finishing touches
+        </h3>
         <p className="text-center mb-6">
-          Let others know what your {activity ? 'activity' : 'trip'} is all about.
+          Let {activity ? 'others' : 'travelers'} know what your {activity ? 'activity' : 'trip'} is all about.
         </p>
         <h3 className="text-xl font-bold text-left mb-2">
           {activity ? 'Activity' : 'Trip'} name
