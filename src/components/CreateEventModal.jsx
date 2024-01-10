@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaPlaneDeparture, FaPlane, FaRegCalendarAlt } from "react-icons/fa";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { useNavigate } from "react-router-dom";
 
 const CreateEventModal = ({ isOpen, setIsOpen }) => {
     const [step, setStep] = useState(1)
@@ -11,6 +12,7 @@ const CreateEventModal = ({ isOpen, setIsOpen }) => {
     const [eventTitle, setEventTitle] = useState('Untitled event')
     const [eventDate, setEventDate] = useState('')
     const [eventDetails, setEventDetails] = useState('')
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
       const eventInfo = {
@@ -21,6 +23,8 @@ const CreateEventModal = ({ isOpen, setIsOpen }) => {
       };
     
       console.log(eventInfo);
+      navigate('/events');
+
     };
 
   return (
