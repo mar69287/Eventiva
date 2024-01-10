@@ -8,8 +8,21 @@ const CreateEventModal = ({ isOpen, setIsOpen }) => {
     const [step, setStep] = useState(1)
     const [trip, setTrip] = useState(false)
     const [activity, setActivity] = useState(false)
-    const [eventDetails, setEventDetails] = useState({})
-    const [eventTitle, setEventTitle] = useState('Untitled')
+    const [eventTitle, setEventTitle] = useState('Untitled event')
+    const [eventDate, setEventDate] = useState('')
+    const [eventDetails, setEventDetails] = useState('')
+
+    const handleSubmit = () => {
+      const eventInfo = {
+        type: trip ? 'trip' : 'activity',
+        title: eventTitle,
+        date: eventDate,
+        details: eventDetails,
+      };
+    
+      console.log(eventInfo);
+    };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -37,10 +50,10 @@ const CreateEventModal = ({ isOpen, setIsOpen }) => {
                   <StepOne trip={trip} setTrip={setTrip} activity={activity} setActivity={setActivity} setIsOpen={setIsOpen} step={step} setStep={setStep} />
               )}
               {step === 2 && (
-                <StepTwo activity={activity} eventTitle={eventTitle} setEventTitle={setEventTitle} step={step} setIsOpen={setIsOpen} setStep={setStep} />
+                <StepTwo activity={activity} eventTitle={eventTitle} setEventTitle={setEventTitle} step={step} setIsOpen={setIsOpen} setStep={setStep} setEventDate={setEventDate} />
               )}
               {step === 3 && (
-                <StepThree activity={activity} eventTitle={eventTitle} setEventTitle={setEventTitle} step={step} setIsOpen={setIsOpen} setStep={setStep} />
+                <StepThree activity={activity} eventTitle={eventTitle} setEventTitle={setEventTitle} step={step} setIsOpen={setIsOpen} setStep={setStep} setEventDetails={setEventDetails} handleSubmit={handleSubmit} />
               )}
               
             </div>
@@ -82,9 +95,9 @@ const StepOne = ({ trip, setTrip, activity, setActivity, step, setStep, setIsOpe
             </div>
             <div className="flex gap-2">
                 <button
-                onClick={() => setIsOpen(false)}
-                className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
-                >
+                  onClick={() => setIsOpen(false)}
+                  className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
+                  >
                     {step === 1 ? 'Close' : 'Return'}
                 </button>
                 <button
@@ -99,7 +112,7 @@ const StepOne = ({ trip, setTrip, activity, setActivity, step, setStep, setIsOpe
     )   
 }
 
-const StepTwo = ({ setStep, step, setIsOpen }) => {
+const StepTwo = ({ setStep, step, setIsOpen, setEventDate }) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0); 
     const formattedDate = today.toLocaleDateString('en-US', {
@@ -122,6 +135,7 @@ const StepTwo = ({ setStep, step, setIsOpen }) => {
         });
         setSelected(formattedDate);
         setShowCalendar(false);
+        setEventDate(formattedDate)
     };
   
     return (
@@ -146,14 +160,20 @@ const StepTwo = ({ setStep, step, setIsOpen }) => {
             </>
         )}
         {showCalendar && (
-          <div className="calendar-container flex justify-center relative">
+          <motion.div
+            style={{transform:"translate(.8)"}}
+            // initial={{scale:.8}}
+
+           className="calendar-container flex justify-center relative w-full overflow-hidden mb-3 text-[12px]">
             <DayPicker
               mode="single"
               selected={selected}
               onSelect={handleDayClick}
-              style={{ color: 'black', background: 'white', padding: 8 }}
+              className="rdp"
+              initial={{scale:.8}}
+              style={{ color: 'black', background: 'white', padding: 8, borderRadius: 15}}
             />
-          </div>
+          </motion.div>
         )}
         <div className="flex gap-2">
             <button
@@ -180,17 +200,17 @@ const StepTwo = ({ setStep, step, setIsOpen }) => {
     );
 };
 
-const StepThree = ({ activity, eventTitle, setEventTitle }) => {
+const StepThree = ({ activity, eventTitle, setEventTitle, setEventDetails, setStep, step, handleSubmit }) => {
   
     return (
       <>
-        <h3 className="text-3xl font-bold text-center mb-2">
+        <h3 className="text-2xl sm:text-3xl font-bold text-center mb-2">
             Finishing touches
         </h3>
         <p className="text-center mb-6">
           Let {activity ? 'others' : 'travelers'} know what your {activity ? 'activity' : 'trip'} is all about.
         </p>
-        <h3 className="text-xl font-bold text-left mb-2">
+        <h3 className="text-lg sm:text-xl font-semibold text-left mb-2">
           {activity ? 'Activity' : 'Trip'} name
         </h3>
         <input
@@ -199,7 +219,37 @@ const StepThree = ({ activity, eventTitle, setEventTitle }) => {
             onChange={(e) => setEventTitle(e.target.value)}
             className="border mb-5 w-full text-black border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
         />
-        
+        <textarea name="" id="" cols="30" rows="6"
+          placeholder="What's the plan for this event?"
+          onChange={(e) => setEventDetails(e.target.value)}
+          className="text-black w-full rounded focus:outline-none focus:border-blue-500 border p-2 mb-4"
+        />
+        <h3 className="text-lg sm:text-xl font-semibold text-left mb-2">
+          Add cover photo
+        </h3>
+        <div className="w-full bg-white text-black h-[15rem] rounded flex justify-center items-center mb-3">
+          Image placeholder
+        </div>
+        <div className="flex flex-row flex-wrap justify-evenly items-center mb-4">
+          <div className="rounded-full bg-white h-10 w-10 mx-3"></div>
+          <div className="rounded-full bg-white h-10 w-10 mx-3"></div>
+          <div className="rounded-full bg-white h-10 w-10 mx-3"></div>
+          <div className="rounded-full bg-white h-10 w-10 mx-3"></div>  
+        </div>
+        <div className="flex gap-2"> 
+          <button
+              onClick={() => setStep(step - 1)}
+              className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
+          >
+              Back
+          </button>
+          <button
+              onClick={handleSubmit}
+              className="bg-white hover:opacity-90 transition-opacity text-primary font-semibold w-full py-2 rounded"
+          >
+              Submit
+          </button>
+        </div>
       </>
     );
 };
