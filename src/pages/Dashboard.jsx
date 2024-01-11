@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
 import CreateEventModal from '../components/CreateEventModal';
+import ExampleComponent from '../components/ExampleComponent';
 
 const Dashboard = () => {
   const [upcoming, setUpcoming] = useState(false)
@@ -43,6 +44,7 @@ const Dashboard = () => {
           So... lets plan your first outing!
         </button>
         <CreateEventModal isOpen={isOpen} setIsOpen={setIsOpen} />
+        <ExampleComponent />
       </div>
     </div>
   )
