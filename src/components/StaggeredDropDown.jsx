@@ -1,11 +1,12 @@
 import { FiChevronDown } from "react-icons/fi";
-import { MdOutlineAccountCircle, MdExitToApp } from "react-icons/md";
+import { MdOutlineAccountCircle, MdExitToApp, MdOutlineDashboard } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useAuth } from "../utilities/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const StaggeredDropDown = () => {
-const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
 return (
     <div className="flex items-center justify-center ">
@@ -27,6 +28,7 @@ return (
                 className="flex flex-col gap-2 p-2 rounded-lg bg-white shadow-xl absolute top-[120%] left-[50%] w-48 overflow-hidden"
             >
                 <Option setOpen={setOpen} Icon={MdOutlineAccountCircle} text="Account" />
+                <Option setOpen={setOpen} Icon={MdOutlineDashboard} text="Dashboard" />
                 <Option setOpen={setOpen} Icon={MdExitToApp} text="Log out" />
             </motion.ul>
         </motion.div>
@@ -36,10 +38,14 @@ return (
 
 const Option = ({ text, Icon, setOpen }) => {
     const {logoutUser} = useAuth()
+    const navigate = useNavigate();
     const handleClick = () => {
         setOpen(false);
         if (text === "Log out") {
           logoutUser()
+        } else if(text === "Dashboard") {
+            navigate('/dashboard');
+            console.log('here')
         }
     };
 return (
