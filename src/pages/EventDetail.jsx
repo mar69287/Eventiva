@@ -4,23 +4,24 @@ import { IoPersonAddSharp } from "react-icons/io5";
 import { FiMonitor, FiSave, FiSearch } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import Overview from '../components/Overview';
 
 const EventDetail = () => {
     const [selected, setSelected] = useState(0);
 
   return (
-    <div className='min-h-[100vh] pt-[70px] flex justify-start z-0 items-center flex-col relative'>
+    <div className='min-h-[100vh] pt-[70px] flex justify-start z-0 items-center flex-col relative bg-white'>
         <NavBar />
         <div className='w-full h-[15rem] min-[600px]:h-[18rem] bg-slate-400 flex justify-center items-center relative'>
             image placeholder
             <h1 className='absolute left-6 bottom-9 text-white text-2xl font-bold min-[600px]:hidden'>Event Name</h1>
         </div>
-        <div className='w-full py-5 flex justify-center items-center max-[600px]:hidden border-b-[1px] border-primary'>
-            <h1 className=' text-black text-2xl font-bold '>Event Name</h1>
+        <div className='w-full py-5 flex justify-center items-center max-[600px]:hidden border-b-[1px] bg-quaternary  border-primary'>
+            <h1 className=' text-[#f2decb] text-2xl font-bold '>Event Name</h1>
         </div>
-        <div className='w-full p-2 flex flex-row justify-center items-center border-b-[1px] border-primary gap-2 min-[400px]:gap-4'>
+        <div className='w-full p-2 flex flex-row justify-center bg-quaternary items-center border-b-[1px] border-primary font-semibold gap-2 min-[400px]:gap-4'>
             <div className='bg-[#f2decb] w-full min-[600px]:max-w-xs  rounded p-3 flex justify-center items-center'>
-                <p className='text-tprimary  '>Name</p>
+                <p className='text-tsecondary  '>Name</p>
                 <div className='ml-4 bg-[#F79257] px-3 py-[1px] font-semibold rounded text-white text-sm '>Planner</div>
             </div>
             <div className='bg-tprimary w-full min-[600px]:max-w-xs gap-4 rounded p-3 flex justify-center items-center text-white '>
@@ -54,18 +55,20 @@ export default EventDetail
 
 const Tabs = ({ selected, setSelected }) => {
     return (
-      <div className="flex justify-start w-full max-w-max mx-auto overflow-y-auto scroll-y pb-[4px]">
-        {FEATURES.map((tab, index) => {
-          return (
-            <Tab
-              key={index}
-              setSelected={setSelected}
-              selected={selected === index}
-              title={tab.title}
-              tabNum={index}
-            />
-          );
-        })}
+      <div className='w-full justify-center items-center bg-white'>
+          <div className="flex justify-start w-full  max-w-max mx-auto overflow-y-auto scroll-y">
+            {FEATURES.map((tab, index) => {
+              return (
+                <Tab
+                  key={index}
+                  setSelected={setSelected}
+                  selected={selected === index}
+                  title={tab.title}
+                  tabNum={index}
+                />
+              );
+            })}
+          </div>
       </div>
     );
   };
@@ -88,7 +91,7 @@ const Tab = ({ selected, title, setSelected, tabNum }) => {
         {selected && (
           <motion.span
             layoutId="tabs-features-underline"
-            className="absolute bottom-0 left-0 right-0 z-10 h-1 bg-ttertiary"
+            className="absolute bottom-0 left-0 right-0 z-10 h-[5px] bg-ttertiary"
           />
         )}
       </div>
@@ -105,22 +108,26 @@ const ExampleFeature = ({title}) => (
 const FEATURES = [
     {
       title: "Overview",
-      Feature: () => <ExampleFeature title={'Overview'} />,
+      Feature: () => <Overview title={'Overview'} />,
     },
     {
       title: "Dates",
       Feature: () => <ExampleFeature title={'Dates'} />,
     },
     {
-      title: "Destinations",
+      title: "Location",
       Feature: () => <ExampleFeature title={'Destinations'} />,
     },
     {
-      title: "Polls",
+      title: "Activity",
+      Feature: () => <ExampleFeature title={'Activity'} />,
+    },
+    {
+      title: "Travelers",
       Feature: () => <ExampleFeature title={'Polls'} />,
     },
     {
-      title: "Members",
+      title: "Polls",
       Feature: () => <ExampleFeature title={'Members'} />,
     },
     {
