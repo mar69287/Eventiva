@@ -5,6 +5,7 @@ import { FiMonitor, FiSave, FiSearch } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Overview from '../components/Overview';
+import DateContainer from '../components/DateContainer';
 
 const EventDetail = () => {
     const [selected, setSelected] = useState(0);
@@ -112,7 +113,7 @@ const FEATURES = [
     },
     {
       title: "Dates",
-      Feature: () => <ExampleFeature title={'Dates'} />,
+      Feature: () => <DateContainer />,
     },
     {
       title: "Location",
