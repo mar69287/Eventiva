@@ -1,5 +1,6 @@
 import { LuCalendarRange } from "react-icons/lu";
 import { MdAdd } from "react-icons/md";
+import Steps from "./Steps";
 
 
 const DateContainer = () => {
@@ -9,28 +10,7 @@ const DateContainer = () => {
             <h1 className="font-bold text-[1.3rem] md:text-2xl">Dates</h1>
             <p className="text-base md:text-lg text-center">Suggest new dates using the "+ Add" button below.</p>
         </div>
-        <div className='flex justify-center w-full items-start gap-2 px-2 mb-6'>
-            <div className='flex flex-col sm:flex-row justify-center items-center gap-2 w-14 sm:w-max'>
-                <div className='h-6 w-6 text-xs font-semibold rounded-full border-2 border-ttertiary bg-primary text-white flex justify-center items-center'>
-                    1
-                </div>
-                <p className="text-xs md:text-sm text-center font-bold">Suggest dates</p>
-            </div>
-            <div className='border-[1px] border-stone-300 flex-1 mt-3'></div>
-            <div className='flex flex-col sm:flex-row justify-center items-center gap-2 w-14 sm:w-max'>
-                <div className='h-6 w-6 text-xs font-semibold rounded-full border-2 border-ttertiary bg-primary text-white flex justify-center items-center'>
-                    2
-                </div>
-                <p className="text-xs md:text-sm text-center font-bold">Vote</p>
-            </div>
-            <div className='border-[1px] border-stone-300 flex-1 mt-3'></div>
-            <div className='flex flex-col sm:flex-row justify-center items-center gap-2 w-14 sm:w-max'>
-                <div className='h-6 w-6 text-xs font-semibold rounded-full border-2 border-ttertiary bg-primary text-white flex justify-center items-center'>
-                    3
-                </div>
-                <p className="text-xs md:text-sm text-center font-bold">Finalize dates</p>
-            </div>
-        </div>
+        <Steps title={'dates'} />
         <div className="text-[8rem] md:text-[8.5rem] text-quaternary mb-2">
             <LuCalendarRange />
         </div>
