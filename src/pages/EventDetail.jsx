@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Overview from '../components/Overview';
 import DateContainer from '../components/DateContainer';
+import LocationConatiner from '../components/LocationConatiner';
 
 const EventDetail = () => {
     const [selected, setSelected] = useState(0);
@@ -109,7 +110,7 @@ const ExampleFeature = ({title}) => (
 const FEATURES = [
     {
       title: "Overview",
-      Feature: () => <Overview title={'Overview'} />,
+      Feature: () => <Overview />,
     },
     {
       title: "Dates",
@@ -117,7 +118,7 @@ const FEATURES = [
     },
     {
       title: "Location",
-      Feature: () => <ExampleFeature title={'Destinations'} />,
+      Feature: () => <LocationConatiner />,
     },
     {
       title: "Activity",
