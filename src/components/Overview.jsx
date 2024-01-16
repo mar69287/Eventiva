@@ -1,15 +1,13 @@
 import { LuCalendarRange } from "react-icons/lu";
 import { BsPinMap } from "react-icons/bs";
 import { TbBeach } from "react-icons/tb";
+import TabComponentHeader from "./TabComponentHeader";
 
 const Overview = ({title}) => {
   return (
     <>
         <div className='w-full max-w-3xl mx-auto px-3 py-6 md:px-8 flex justify-center items-center flex-col gap-3'>
-            <div className="flex justify-center items-center flex-col gap-2 text-tsecondary mb-5">
-                <h1 className="font-bold text-[1.3rem] md:text-2xl">Event Details</h1>
-                <p className="text-base md:text-lg text-center">Collaborate with your group and keep track of decisions for this trip.</p>
-            </div>
+            <TabComponentHeader title={'Event Details'} description={'Collaborate with your group and keep track of decisions for this trip.'} />
             {eventFeatures.map((feature, index) => (
                 <FeatureContainers key={index} {...feature} />
             ))}

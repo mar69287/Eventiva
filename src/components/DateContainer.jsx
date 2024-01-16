@@ -1,15 +1,13 @@
 import { LuCalendarRange } from "react-icons/lu";
 import { MdAdd } from "react-icons/md";
 import Steps from "./Steps";
+import TabComponentHeader from "./TabComponentHeader";
 
 
 const DateContainer = () => {
   return (
     <div className='w-full max-w-4xl mx-auto px-3 py-6 md:px-8 flex justify-center items-center flex-col gap-3'>
-        <div className="flex justify-center items-center flex-col gap-2 text-tsecondary mb-5">
-            <h1 className="font-bold text-[1.3rem] md:text-2xl">Dates</h1>
-            <p className="text-base md:text-lg text-center">Suggest new dates using the "+ Add" button below.</p>
-        </div>
+        <TabComponentHeader title={'Dates'} description={'Suggest new dates using the "+ Add" button below.'} />
         <Steps title={'dates'} />
         <div className="text-[8rem] md:text-[8.5rem] text-quaternary mb-2">
             <LuCalendarRange />
